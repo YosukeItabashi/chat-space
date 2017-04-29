@@ -9,6 +9,7 @@
 | group_id   |      integer| foreign_key: true          |
 | timestamps |             | null: false                |
 
+
 ## Association
 belongs_to :users
 belongs_to :groups
@@ -33,6 +34,7 @@ has_many :members
 | name       | string      |index: true, null: false    |
 | members_id | integer     |null: false                 |
 
+
 ##Association
 has_many :users, thorough: members
 has_many :messages
@@ -45,6 +47,8 @@ has_many :members
 | groups_id  | integer     |foreign_key: true           |
 | users_id   | integer     |foreign_key: true           |
 
+
 ##Association
 belongs_to :groups
 belongs_to :users
+
