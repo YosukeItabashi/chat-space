@@ -1,24 +1,54 @@
-# README
+# DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## messages table
+| column     | type        | options                    |
+|:-----------|------------:|:--------------------------:|
+| body       | text        | null: false                |
+| image      | string      |                            |
+| user_id    | integer     | foreign_key: true          |
+| group_id   | integer     | foreign_key: true          |
+| timestamps |             | null: false                |
 
-* Ruby version
 
-* System dependencies
+## Association
++ belongs_to :users
++ belongs_to :groups
 
-* Configuration
 
-* Database creation
+## users table
+| column     | type        | options                    |
+|:-----------|------------:|:--------------------------:|
+| name       | string      | null: false                |
++ 上記の他にgem deviseによるカラム。
 
-* Database initialization
 
-* How to run the test suite
+## Association
++ has_many :groups, through: groups_users
++ has_many :messages
++ has_many :groups_users
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+## groups table
+| column     | type        | options                    |
+|:-----------|------------:|:--------------------------:|
+| name       | string      |index: true, null: false    |
+
+
+## Association
++ has_many :users, thorough: groups_users
++ has_many :messages
++ has_many :groups_users
+
+
+## group_users table
+| column     | type        | options                       |
+|:-----------|------------:|:-----------------------------:|
+| groups_id  | integer     |index: true, foreign_key: true |
+| users_id   | integer     |index: true, foreign_key: true |
+
+
+## Association
++ belongs_to :groups
++ belongs_to :users
