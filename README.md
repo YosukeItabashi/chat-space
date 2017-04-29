@@ -11,8 +11,8 @@
 
 
 ## Association
-belongs_to :users
-belongs_to :groups
++ belongs_to :users
++ belongs_to :groups
 
 
 ## users table
@@ -23,9 +23,9 @@ belongs_to :groups
 
 
 ## Association
-has_many :groups, through: members
-has_many :messages
-has_many :members
++ has_many :groups, through: members
++ has_many :messages
++ has_many :members
 
 
 ## groups table
@@ -36,9 +36,9 @@ has_many :members
 
 
 ## Association
-has_many :users, thorough: members
-has_many :messages
-has_many :members
++ has_many :users, thorough: members
++ has_many :messages
++ has_many :members
 
 
 ## members table
@@ -49,6 +49,6 @@ has_many :members
 
 
 ## Association
-belongs_to :groups
-belongs_to :users
++ belongs_to :groups
++ belongs_to :users
 
