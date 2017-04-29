@@ -29,6 +29,7 @@
 + has_many :groups_users
 
 
+
 ## groups table
 | column     | type        | options                    |
 |:-----------|------------:|:--------------------------:|
@@ -40,27 +41,4 @@
 + has_many :messages
 + has_many :groups_users
 
-
-## groups_users table
-+ has_many :users, thorough: members
-+ has_many :messages
-+ has_many :members
-
-
-## members table
-+ has_many :users, thorough: members
-+ has_many :messages
-+ has_many :members
-
-
-## members table
-| column     | type        | options                    |
-|:-----------|------------:|:--------------------------:|
-| groups_id  | integer     |foreign_key: true           |
-| users_id   | integer     |foreign_key: true           |
-
-
-## Association
-+ belongs_to :groups
-+ belongs_to :users
 
