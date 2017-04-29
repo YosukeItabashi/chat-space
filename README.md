@@ -42,3 +42,13 @@
 + has_many :groups_users
 
 
+## groups_users table
+| column     | type        | options                    |
+|:-----------|------------:|:--------------------------:|
+| groups_id  | integer     |foreign_key: true           |
+| users_id   | integer     |foreign_key: true           |
+
+
+## Association
++ belongs_to :groups
++ belongs_to :users
