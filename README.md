@@ -22,33 +22,33 @@ belongs_to :groups
 | mail       | stting      |null: false                 |
 
 
-##Association
+## Association
 has_many :groups, through: members
 has_many :messages
 has_many :members
 
 
-##groups table
+## groups table
 | column     | type        | options                    |
 |:-----------|------------:|:--------------------------:|
 | name       | string      |index: true, null: false    |
 | members_id | integer     |null: false                 |
 
 
-##Association
+## Association
 has_many :users, thorough: members
 has_many :messages
 has_many :members
 
 
-##members table
+## members table
 | column     | type        | options                    |
 |:-----------|------------:|:--------------------------:|
 | groups_id  | integer     |foreign_key: true           |
 | users_id   | integer     |foreign_key: true           |
 
 
-##Association
+## Association
 belongs_to :groups
 belongs_to :users
 
