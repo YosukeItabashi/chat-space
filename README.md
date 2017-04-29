@@ -42,11 +42,11 @@
 + has_many :groups_users
 
 
-## groups_users table
-| column     | type        | options                    |
-|:-----------|------------:|:--------------------------:|
-| groups_id  | integer     |foreign_key: true           |
-| users_id   | integer     |foreign_key: true           |
+## group_users table
+| column     | type        | options                       |
+|:-----------|------------:|:-----------------------------:|
+| groups_id  | integer     |index: true, foreign_key: true |
+| users_id   | integer     |index: true, foreign_key: true |
 
 
 ## Association
