@@ -4,13 +4,14 @@
 @import "./user.scss";
 @import "./flash.scss";
 @import "./group.scss";
+@import "./colors.scss";
 
 //左の黒いエリア
 .content-left {
   background-color: #2f3e51;
   width: 300px;
   height: 100vh;
-  color: #FFFFFF;
+  color: $white;
   float: left;
   position: relative;
 }
@@ -28,18 +29,18 @@
   &-pencil-square-o{
     left: 250px;
     top: 40px;
-    color: #ffffff;
+    color: $white;
   }
   &-cog {
     left: 270px;
     top: 40px;
-    color: #ffffff;
+    color: $white;
   }
 }
 
 .groups {
   padding: 20px 20px 40px 20px;
-  color: #ffffff;
+  color: $white;
   &__name {
     font-size: 15px;
     padding-bottom: 5px;
@@ -60,12 +61,12 @@
 }
 
 .submit {
-  background-color: #FFFFFF;
+  background-color: $white;
   position: relative;
   width: calc(100% - 130px);
   &__content {
     display: inline-block;
-    background-color: #FFFFFF;
+    background-color: $white;
     line-height: 50px;
     padding-left: 10px;
     font-size: 16px;
@@ -79,11 +80,11 @@
     text-align: center;
     position: absolute;
     right: 40px;
-    background-color: #38AEF0;
+    background-color: $blue;
     color: white;
     line-height: 50px;
     bottom: 20px;
-    border: #38AEF0;
+    border: $blue;
   }
 }
 
@@ -91,7 +92,7 @@
   &-file-image-o{
     padding: 17px 0px;
     padding-right: 10px;
-    background-color: #ffffff;
+    background-color: $white;
   }
 }
 

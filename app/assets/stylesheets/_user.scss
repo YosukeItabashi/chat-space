@@ -1,10 +1,12 @@
+@import "./colors.scss";
+
 .account-page {
   .account-page__inner {
     width: 980px;
     margin: 60px auto;
     padding: 60px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: $white;
+    border: 1px solid $light-gray;
     border-radius: 5px;
 
     .account-page__inner--left, .account-page__inner--right {
@@ -42,7 +44,7 @@
 
     .btn {
       margin-top: 20px;
-      color: #fff;
+      color: $white;
       background-color: #ccc;
       font-size: 14px;
     }
@@ -86,7 +88,7 @@
     float: left;
     margin-top: 20px;
     color: #fff;
-    background-color: #38aef0;
+    background-color: $blue;
   }
 
   .field-label {
@@ -118,7 +120,7 @@
 #error_explanation {
   margin: 20px 0;
   padding: 20px 30px;
-  border: 1px solid #ddd;
+  border: 1px solid $light-gray;
   border-radius: 2px;
 
   h2 {
