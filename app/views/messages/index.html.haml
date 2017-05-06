@@ -1,6 +1,7 @@
 .content-left
   .user-name
     = current_user.name
+  = link_to new_group_path do
     %i.fa.fa-pencil-square-o
   = link_to edit_user_path(current_user) do
     %i.fa.fa-cog
@@ -21,6 +22,7 @@
       sampleグループ
     %p.group__member
       Members: 板橋洋輔
+  = link_to edit_group_path(current_user) do
     %p.group__btn
       Edit
 
