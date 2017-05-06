@@ -2,16 +2,7 @@
 @import "./chat";
 @import "font-awesome";
 @import "./user.scss";
-
-//上部の青いエリア
-.content-top {
-  background-color: #38AEF0;
-  width: 100vw;
-  color: #FFFFFF;
-  text-align: center;
-  position: relative;
-}
-
+@import "./flash.scss";
 
 //左の黒いエリア
 .content-left {
