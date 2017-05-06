@@ -1,10 +1,11 @@
 @import "./reset";
-@import "./chat";
+@import "./colors.scss";
 @import "font-awesome";
+@import "./chat";
 @import "./user.scss";
 @import "./flash.scss";
 @import "./group.scss";
-@import "./colors.scss";
+
 
 //左の黒いエリア
 .content-left {
