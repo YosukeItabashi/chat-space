@@ -97,3 +97,13 @@
   }
 }
 
+//グループ作成時のエラー内容
+#error_explanation.alert.alert-danger{
+  text-align: center;
+}
+.error-msg{
+  color: black;
+}
+.error-msg-count{
+  color: red;
+}
