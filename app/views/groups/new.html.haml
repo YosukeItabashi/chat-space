@@ -1,6 +1,15 @@
 .chat-group-form
 
   %h1 新規チャットグループ
+  - if @group.errors.any?
+    #error_explanation.alert.alert-danger
+      %p.error-msg-count
+        = @group.errors.count
+        件のエラーが発生しました。
+        - @group.errors.full_messages.each do |message|
+          %p.error-msg
+          = message
+
   = form_for @group do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
