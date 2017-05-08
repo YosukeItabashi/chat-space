@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
 
     def edit
+      @group = Group.find(params[:id])
     end
 
     def new
@@ -15,6 +16,11 @@ class GroupsController < ApplicationController
         flash.now[:alert] = "グループ名を入力してください"
         render 'new'
       end
+    end
+
+    def update
+      Group.find(current_user).update(group_params)
+      redirect_to :root, notice: "グループを編集しました"
     end
 
     private
