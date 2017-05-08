@@ -1,9 +1,5 @@
 class GroupsController < ApplicationController
 
-    def index
-        redirect_to :root
-    end
-
     def edit
     end
 
@@ -14,8 +10,9 @@ class GroupsController < ApplicationController
     def create
       @group = Group.new(group_params)
       if @group.save
-        redirect_to :root
+        redirect_to :root, notice: "グループを作成しました"
       else
+        flash.now[:alert] = "グループ名を入力してください"
         render 'new'
       end
     end
@@ -23,8 +20,7 @@ class GroupsController < ApplicationController
     private
 
     def group_params
-      params.require(:group).permit(:name)
-      # group_usersのDBに保存されないとだめじゃない？と思ってる
+      params.require(:group).permit(:name, user_ids: [])
     end
 
 end
