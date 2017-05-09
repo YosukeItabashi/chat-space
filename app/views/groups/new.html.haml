@@ -10,7 +10,7 @@
           %p.error-msg
           = message
 
-  = render partial: "groups/form"
+  = render partial: "groups/form", locals: { group: @group }
 
 / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
 /
