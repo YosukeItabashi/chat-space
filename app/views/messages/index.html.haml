@@ -16,7 +16,7 @@
     %p.group__member
       Members:
       = @users.pluck :name
-  = link_to edit_group_path(current_user) do
+  = link_to edit_group_path(@group) do
     %p.group__btn
       Edit
 
