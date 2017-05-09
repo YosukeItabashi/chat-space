@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
+  before_action :find_group_params, only: [:edit, :update]
 
     def edit
-      @group = Group.find(params[:id])
     end
 
     def new
@@ -19,7 +19,6 @@ class GroupsController < ApplicationController
     end
 
     def update
-      find_group_params
       if @group.update(group_params)
         redirect_to :root, notice: "グループを編集しました"
       else
