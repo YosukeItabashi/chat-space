@@ -1,10 +1,7 @@
 class MessagesController < ApplicationController
+  before_action :before_reload_data
 
   def index
-    @groups = current_user.groups.order(id: :DESC)
-    @group = Group.find(params[:group_id])
-    @users = @group.users
-    @message = Message.new
   end
 
   def create
@@ -21,4 +18,11 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:body, :image).merge(group_id: params[:group_id])
   end
 
+  def before_reload_data
+    @groups = current_user.groups.order(id: :DESC)
+    @group = Group.find(params[:group_id])
+    @users = @group.users
+    @message = Message.new
+    @messages = @group.messages
+  end
 end
