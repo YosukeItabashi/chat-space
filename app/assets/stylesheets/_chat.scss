@@ -1,5 +1,3 @@
-
-
 //右の白いエリア
 .content-right {
   background-color: $white;
@@ -40,6 +38,8 @@
 
 .chat {
   padding: 46px 40px 40px 40px;
+  height: calc(100vh - 190px);
+  overflow: auto;
   &__user {
     font-weight: bold;
     font-size: 16px;
