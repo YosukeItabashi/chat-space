@@ -12,12 +12,7 @@
       Edit
 
   .chat
-    %p.chat__user
-      板橋洋輔
-    %p.chat__date
-      2016/10/02 06:27:07
-    %p.chat__content
-      なるほど
+    = render partial: 'chat', collection: @messages, as: :message
 
   .bottom-content
     .submit
