@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   def index
-    @groups = current_user.groups.order(id: :DESC).limit(5)
+    @groups = current_user.groups.order(id: :DESC)
     @group = Group.find(params[:group_id])
     @users = @group.users
     @message = Message.new
@@ -9,8 +9,11 @@ class MessagesController < ApplicationController
 
   def create
     @message = current_user.messages.new(message_params)
-    @message.save
-    redirect_to action: :index
+    if @message.save
+      redirect_to group_messages_path, notice: "メッセージが投稿されました。"
+    else
+      redirect_to group_messages_path, alert: "メッセージを入力してください"
+    end
   end
 
   private
