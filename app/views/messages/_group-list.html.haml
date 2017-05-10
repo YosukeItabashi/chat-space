@@ -3,4 +3,5 @@
     %p.groups__name
       = group.name
     %p.groups__message
-      メッセージはありません。
+      - if group.messages.present?
+        = group.messages.last.body
