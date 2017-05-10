@@ -14,10 +14,6 @@ class MessagesController < ApplicationController
   end
 
   private
-  def message_params
-    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id])
-  end
-
   def before_reload_data
     @groups = current_user.groups.order(id: :DESC)
     @group = Group.find(params[:group_id])
@@ -25,4 +21,9 @@ class MessagesController < ApplicationController
     @message = Message.new
     @messages = @group.messages
   end
+
+  def message_params
+    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id])
+  end
+
 end
