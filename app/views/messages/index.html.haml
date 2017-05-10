@@ -21,8 +21,9 @@
 
   .bottom-content
     .submit
-    %p.submit__content
-      ここにテキスト
-    %i.fa.fa-file-image-o
-    %p.submit__btn
-      Send
+    = form_for [@group, @message] do |f|
+      %p
+        = f.text_field :body, class: "submit__content", placeholder: 'メッセージを入力してください'
+        %i.fa.fa-file-image-o
+      %p
+        = f.submit "Send", class: "submit__btn", name: "Commit"
