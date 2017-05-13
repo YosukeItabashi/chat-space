@@ -1,10 +1,10 @@
 FactoryGirl.define do
 
   factory :message do
-    body        "これはサンプルメッセージ"
-    image       "test.png"
-    group_id    "33"
-    user_id     "1"
-    created_at  "2017-05-10 04:05:07"
+    body        Faker::Lorem.sentence
+    image       Faker::Internet.domain_name
+    group_id    Faker::Number.number(2)
+    user_id     Faker::Number.number(2)
+    created_at { Faker::Time.between(2.days.ago, Time.now, :all) }
   end
 end
