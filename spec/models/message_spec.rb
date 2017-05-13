@@ -6,7 +6,6 @@ describe Message do
     it "バリデーションに引っかかり、保存できない場合のテスト" do
       message = build(:message, body: "")
       message.valid?
-      binding.pry
       expect(message.errors[:body]).to include("を入力してください")
     end
 
