@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe Message do
   describe '#create' do
+  let(:message) { FactoryGirl.build(:message) }
 
     it "バリデーションに引っかかり、保存できない場合のテスト" do
       message = build(:message, body: "")
