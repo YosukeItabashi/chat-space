@@ -7,7 +7,10 @@ class MessagesController < ApplicationController
   def create
     @message = current_user.messages.new(message_params)
     if @message.save
-      redirect_to group_messages_path, notice: "メッセージが投稿されました。"
+      respond_to do |format|
+        format.html { redirect_to group_messages_path, notice: "メッセージが投稿されました。" }
+        format.json { render 'create.json.jbuilder' }
+      end
     else
       redirect_to group_messages_path, alert: "メッセージを入力してください"
     end
