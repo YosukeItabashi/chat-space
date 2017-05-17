@@ -31,6 +31,10 @@ $(function() {
       $('.chat').append(view);
       $('.js-form__text-field').val('');
       $("input").prop("disabled", false)
+      var pos = $('.chat').height();
+      $('.chat').animate({
+          scrollTop: $('.chat')[0].scrollHeight
+      }, 'slow', 'swing');
     })
     .fail(function(data) {
       alert('メッセージを入力してください');
