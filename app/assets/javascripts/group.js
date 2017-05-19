@@ -39,22 +39,23 @@ $(function(){
 //コントローラーからデータが無事に戻ってきたら発動。ユーザーリストを作成する。dataにはコントローラの@usersが入っている。
     .done(function(data){
       $('#user-search-result').find('.chat-group-user').remove();
-      $(data).each(function(i, user){
+      $(data.members).each(function(i, user){
         appendList(user)
       });
-    })
+    });
   });
 
 //追加ボタンをクリックしたら発動。
   $("#user-search-result").on('click', '.chat-group-user__btn--add', function(){
-    var id = $(this).data('userId');
-    var name = $(this).data('userName');
+    var $chatGroupUserBtnAdd = $('.chat-group-user__btn--add');
+    var id = $chatGroupUserBtnAdd.data('userId');
+    var name = $chatGroupUserBtnAdd.data('userName');
     var insertHTML = buildMemberHTML(id, name);
     $('#chat-group-users').append(insertHTML);
-    $(this).parent('.chat-group-user').remove();
+    $chatGroupUserBtnAdd.parent('.chat-group-user').remove();
   });
 
-  // 削除ボタンをクリックしたら発動。
+// 削除ボタンをクリックしたら発動。
   $('#chat-group-users').on('click', '.user-search-remove', function() {
     var id = $(this).data('userId');
     $(`#chat-group-user-${id}`).remove();

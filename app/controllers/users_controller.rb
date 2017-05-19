@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def search
     @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").where.not(name: current_user.name)
     respond_to do |format|
-      format.json { render 'groups/new', json: @users }
+      format.json { render 'search.json.jbuilder', handlers: :jbuilder }
     end
   end
 
