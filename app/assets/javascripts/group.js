@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
 
 // ユーザー検索時に表示されるユーザー名と追加ボタンのHTML
   function appendList(user) {
@@ -46,13 +46,15 @@ $(function(){
   });
 
 //追加ボタンをクリックしたら発動。
-  $("#user-search-result").on('click', '.chat-group-user__btn--add', function(){
-    var $chatGroupUserBtnAdd = $('.chat-group-user__btn--add');
-    var id = $chatGroupUserBtnAdd.data('userId');
-    var name = $chatGroupUserBtnAdd.data('userName');
-    var insertHTML = buildMemberHTML(id, name);
-    $('#chat-group-users').append(insertHTML);
-    $chatGroupUserBtnAdd.parent('.chat-group-user').remove();
+  $(document).on('turbolinks:load', function(){
+    $("#user-search-result").on('click', '.chat-group-user__btn--add', function(){
+      var $chatGroupUserBtnAdd = $('.chat-group-user__btn--add');
+      var id = $chatGroupUserBtnAdd.data('userId');
+      var name = $chatGroupUserBtnAdd.data('userName');
+      var insertHTML = buildMemberHTML(id, name);
+      $('#chat-group-users').append(insertHTML);
+      $chatGroupUserBtnAdd.parent('.chat-group-user').remove();
+    });
   });
 
 // 削除ボタンをクリックしたら発動。
