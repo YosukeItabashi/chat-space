@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
 
 // ユーザー検索時に表示されるユーザー名と追加ボタンのHTML
   function appendList(user) {
