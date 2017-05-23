@@ -15,6 +15,9 @@ CarrierWave.configure do |config|
     when 'development'
         config.fog_directory  = ENV['AWS_BUCKET_NAME']
         config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/chat-space-bevypu'
+    when 'test'
+        config.fog_directory  = ENV['AWS_BUCKET_NAME']
+        config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/chat-space-bevypu'
     when 'production'
         config.fog_directory  = ENV['AWS_BUCKET_NAME']
         config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/chat-space-bevypu'
