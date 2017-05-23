@@ -54,11 +54,14 @@ $(document).on('turbolinks:load', function () {
     })
 
     .done(function(json) {
+      var last_id = $('.chat-wrapper').last().data('message-id');
       var reload_view = '';
       json.messages.forEach(function(message) {
-      reload_view = reload_view + buildHTML(message);
+        if (message.id > last_id ) {
+          reload_view = reload_view + buildHTML(message);
+        }
       });
-      $('.chat').html(reload_view)
+      $('.chat').prepend(reload_view)
     })
 
     .fail(function(json) {
