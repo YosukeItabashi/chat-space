@@ -2,10 +2,9 @@ $(document).on('turbolinks:load', function () {
 
 // メッセージ表示のHTMLを生成
   function buildHTML(message) {
-    var image = '';
-    if (message.image !== null) {
-      image = `<img src="${message.image}">`;
-    }
+    var image = (message.image !== null)
+    ?(`<img src="${message.image}">`) : ('');
+
     var html = `
         <p class="chat__user">${message.name}</p>
         <p class="chat__date">${message.date}</p>
