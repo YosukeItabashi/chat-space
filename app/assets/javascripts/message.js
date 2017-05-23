@@ -2,29 +2,33 @@ $(document).on('turbolinks:load', function () {
 
 // メッセージ表示のHTMLを生成
   function buildHTML(message) {
+    var image = '';
+    if (message.image !== null) {
+      image = `<img src="${message.image}">`;
+    }
     var html = `
         <p class="chat__user">${message.name}</p>
         <p class="chat__date">${message.date}</p>
-        <p class="chat__content">${message.body}</p>`;
+        <p class="chat__content">${message.body}</p>
+        <p>${image}</p>`;
     return html;
   }
 
 // メッセージ送信の非同期通信
   $('.js-form').on('submit', function(e) {
     e.preventDefault();
-    var textField = $('.js-form__text-field');
-    var message = textField.val();
+    var formdata = new FormData($(this).get(0));
 
     $.ajax({
       type: 'POST',
       url: './messages',
-      data: {
-        message: {
-          body: message
-        }
-      },
-      dataType: 'json'
+      data: formdata,
+      dataType: 'json',
+      processData: false,
+      contentType: false
     })
+
+// ajax通信→contoroller処理→以下のJSの処理
 
     .done(function(data) {
       var view = buildHTML(data);
