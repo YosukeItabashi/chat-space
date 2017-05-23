@@ -118,3 +118,10 @@
 .error-msg-count{
   color: red;
 }
+
+//画像アップローダーのデフォルト表示を非表示に
+.image-uploader {
+  input {
+  display: none;
+  }
+}

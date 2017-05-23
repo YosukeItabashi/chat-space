@@ -4,3 +4,6 @@
   = message.created_at
 %p.chat__content
   = message.body
+%p.chat__image
+  - if message.image.present?
+    = image_tag(message.image)
