@@ -16,7 +16,7 @@
 
   .bottom-content
     .submit
-    = form_for [@group, @message], html: { class: "form js-message" } do |f|
+    = form_for [@group, @message], html: { class: "js-form" } do |f|
       = f.text_field :body, class: "submit__content js-form__text-field", placeholder: 'メッセージを入力してください'
       %label.image-uploader
         = f.file_field :image
