@@ -44,4 +44,26 @@ $(document).on('turbolinks:load', function () {
     });
   return false;
   });
+
+//メッセージの自動更新機能
+    setInterval(function() {
+    $.ajax({
+      type: 'GET',
+      url: location.href,
+      dataType: 'json'
+    })
+
+    .done(function(json) {
+      var reload_view = '';
+      json.messages.forEach(function(message) {
+      reload_view = reload_view + buildHTML(message);
+      });
+      $('.chat').html(reload_view)
+    })
+
+    .fail(function(json) {
+      alert('自動更新に失敗しました');
+    })
+    } , 5000 );
+
 });
