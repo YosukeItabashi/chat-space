@@ -2,6 +2,10 @@ class MessagesController < ApplicationController
   before_action :before_reload_data
 
   def index
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create
