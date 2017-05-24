@@ -6,11 +6,21 @@ $(document).on('turbolinks:load', function () {
     ?(`<img src="${message.image}">`) : ('');
 
     var html = `
+      <div class="chat-wrapper" data-message-id="${message.id}">
         <p class="chat__user">${message.name}</p>
         <p class="chat__date">${message.date}</p>
         <p class="chat__content">${message.body}</p>
-        <p>${image}</p>`;
+        <p>${image}</p>
+      </div>`;
     return html;
+  }
+
+//登校後ページ下にスクロールする関数
+  function scroll() {
+    var pos = $('.chat').height();
+    $('.chat').animate({
+        scrollTop: $('.chat')[0].scrollHeight
+    }, 'slow', 'swing');
   }
 
 // メッセージ送信の非同期通信
@@ -34,10 +44,7 @@ $(document).on('turbolinks:load', function () {
       $('.chat').append(view);
       $('.js-form__text-field').val('');
       $("input").prop("disabled", false)
-      var pos = $('.chat').height();
-      $('.chat').animate({
-          scrollTop: $('.chat')[0].scrollHeight
-      }, 'slow', 'swing');
+      scroll();
     })
     .fail(function(data) {
       alert('メッセージを入力してください');
@@ -46,6 +53,7 @@ $(document).on('turbolinks:load', function () {
   });
 
 //メッセージの自動更新機能
+ if (window.location.href.match(/messages/)) {
     setInterval(function() {
     $.ajax({
       type: 'GET',
@@ -61,12 +69,13 @@ $(document).on('turbolinks:load', function () {
           reload_view = reload_view + buildHTML(message);
         }
       });
-      $('.chat').prepend(reload_view)
+      $('.chat').append(reload_view);
+      scroll();
     })
 
     .fail(function(json) {
       alert('自動更新に失敗しました');
     })
     } , 5000 );
-
+  }
 });
