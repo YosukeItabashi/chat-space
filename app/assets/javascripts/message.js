@@ -44,7 +44,6 @@ $(document).on('turbolinks:load', function () {
       $('.chat').append(view);
       $('.js-form__text-field').val('');
       $("input").prop("disabled", false)
-      scroll();
     })
     .fail(function(data) {
       alert('メッセージを入力してください');
@@ -55,6 +54,7 @@ $(document).on('turbolinks:load', function () {
 //メッセージの自動更新機能
  if (window.location.href.match(/messages/)) {
     setInterval(function() {
+    scroll();
     $.ajax({
       type: 'GET',
       url: location.href,
@@ -70,12 +70,11 @@ $(document).on('turbolinks:load', function () {
         }
       });
       $('.chat').append(reload_view);
-      scroll();
     })
 
     .fail(function(json) {
       alert('自動更新に失敗しました');
     })
-    } , 5000 );
+    } , 2500 );
   }
 });
