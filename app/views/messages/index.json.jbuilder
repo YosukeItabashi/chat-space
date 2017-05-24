@@ -5,3 +5,4 @@ json.messages @messages.each do |message|
   json.image    message.image.url
   json.id       message.id
 end
+
