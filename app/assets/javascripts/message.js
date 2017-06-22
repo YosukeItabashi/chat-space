@@ -70,6 +70,7 @@ $(document).on('turbolinks:load', function () {
         }
       });
       $('.chat').append(reload_view);
+      scroll()
     })
 
     .fail(function(json) {
